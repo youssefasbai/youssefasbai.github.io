@@ -1,0 +1,73 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import os
+from selenium.webdriver.common.keys import Keys
+import time
+
+import random
+
+
+
+def my_function():
+
+
+
+
+        i = 0
+        while int(i) <= 10:
+            i += 1
+            print('___________________________******_Mt San Antonio_*****______________________________')
+            print('____________________________******START NEW LINE******______________________________')
+            ko = str(i)
+            print('Line Number : ' + ko)
+            try:
+
+
+
+
+
+
+                chrome_options = webdriver.ChromeOptions()
+                chrome_options.add_argument("--headless")
+                chrome_options.add_argument("--disable-dev-shm-usage")
+                chrome_options.add_argument("--no-sandbox")
+                chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36")
+                    
+
+
+                driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),
+                                          chrome_options=chrome_options)
+
+                newline =' newid  newpassword'
+
+                print(newline)
+
+
+
+                actions = ActionChains(driver)
+
+                driver.get(
+                    "https://docs.google.com/document/d/1kdDCUbjJqMZe3Fg-iCfrDDwf65DRAPE_822P7_Rc3k4/edit?usp=sharing")
+                time.sleep(2)
+                actions.send_keys(newline + Keys.ENTER)
+                actions.perform()
+                time.sleep(9)
+                driver.quit()
+
+
+            except Exception as e:
+                print(e)
+
+                
+                time.sleep(1)
+
+                print('___________________________******JUMP TO NEXT LINE******____________________________')
+            continue
+
+
+
+my_function()
